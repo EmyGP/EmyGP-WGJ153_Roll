@@ -10,11 +10,14 @@ public class blockBehavior : MonoBehaviour
     public int rotDegrees = 0;
     public int rotDegreesIncr = 0;
     private bool RmouseDown;
+        // se metto il rb, settarlo come kinematic
+    //private Rigidbody2D blockrb;
 
     // Start is called before the first frame update
     void Start()
     {
         block = this.gameObject;
+        //blockrb = block.GetComponent<Rigidbody2D>();
     }
 
     private void OnMouseDown()
@@ -32,9 +35,14 @@ public class blockBehavior : MonoBehaviour
     //click destro, ruoto object di rotDegrees gradi
     private void BlocksRotation()
     {
+        //block.transform.Rotate(0, 0, rotDegrees);
         block.transform.rotation = Quaternion.Euler(0, 0, rotDegrees);
         rotDegrees += rotDegreesIncr;
         Debug.Log("giraaaaaaaaaaa");
+        if (rotDegrees >= 180)
+        {
+            rotDegrees = 0;
+        }
     }
 
 
@@ -43,7 +51,7 @@ public class blockBehavior : MonoBehaviour
         if (mouseIsDragging == true)
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            transform.Translate(mousePosition);
+            block.transform.Translate(mousePosition);
             if (Input.GetMouseButtonDown(1) == true)
             {
                 BlocksRotation();
