@@ -13,7 +13,6 @@ public class blockBehavior : MonoBehaviour
         // se metto il rb, settarlo come kinematic
     //private Rigidbody2D blockrb;
 
-    // Start is called before the first frame update
     void Start()
     {
         block = this.gameObject;
