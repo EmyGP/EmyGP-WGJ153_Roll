@@ -4,40 +4,56 @@ using UnityEngine;
 
 public class MakiRollSpawner2 : MonoBehaviour
 {
-    public GameObject makiRoll1;
         //ogni quanto spawnano
-    public float timeIntervals;
-        //quanti spawn voglio avere
-    public float maxSpawn;
+    //public float repeatSpawnRate;
+        //dopo quanto spawnano per la prima volta
+    //public GameObject[] makiRolls;
+    public float spawnDelay;
+    private int makiRollsN;
+    public float maxMakiRolls;
+
+    public GameObject makiRoll1;
     public int x;
     public int y;
-    public GameObject[] makiRolls;
-    private int makiRollsN;
+    //collider per contare i makirolls passati
+    public Collider2D makiCC;
 
-    void Awake()
-    {
-        //mT = timeIntervals * maxSpawn;
-        makiRolls = GameObject.FindGameObjectsWithTag("Makiroll");
-        int makiRollsN = GameObject.FindGameObjectsWithTag("Makiroll").Length;
-        InvokeRepeating("Spawning", maxSpawn, timeIntervals);
-    }
+    //void Awake()
+    //{
+    //    makiRolls = GameObject.FindGameObjectsWithTag("Makiroll");
+    //    int makiRollsN = GameObject.FindGameObjectsWithTag("Makiroll").Length;
+    //    //InvokeRepeating("Spawning", spawnDelay, repeatSpawnRate);
+    //}
 
     private void Start()
     {
+        StartCoroutine("SpawnMakiRolls");
     }
 
     void Spawning()
     {    
-        Instantiate(makiRolls[makiRollsN], new Vector3(x, y, 0), Quaternion.identity);
-        Debug.Log("ehiiiiiiiiiiiiiiiii");
+        Instantiate(makiRoll1, new Vector3(x, y, 0), Quaternion.identity);
+    }
+
+    IEnumerator SpawnMakiRolls()
+    {
+        Spawning();
+        yield return new WaitForSeconds(spawnDelay);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        collision.gameObject.tag = "Makiroll";
+        makiRollsN += 1;
+        Debug.Log("passati " + makiRollsN + " maki rollsss");        
     }
 
     private void Update()
     {
-        if (makiRollsN <= 0)
+        if (makiRollsN >= maxMakiRolls)
         {
             //ferma lo spawn dei maki rolls
-        }
-        
+            //come? il counter makirollsN conta quanti maki passano per un collider. Quando sono >= fermo la coroutine che farò
+        }        
     }
 }
