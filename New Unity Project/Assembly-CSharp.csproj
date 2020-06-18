@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\blockBehavior.cs" />
     <Compile Include="Assets\Scripts\blockBehavior2.cs" />
     <Compile Include="Assets\Scripts\MakiRollSpawner.cs" />
+    <Compile Include="Assets\Scripts\MakiRollSpawner2.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/EmyGP/Documents/Games/WGJ153_Roll/New Unity Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
