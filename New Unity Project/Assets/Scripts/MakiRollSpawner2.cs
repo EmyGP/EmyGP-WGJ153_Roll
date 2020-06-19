@@ -37,7 +37,10 @@ public class MakiRollSpawner2 : MonoBehaviour
 
     IEnumerator SpawnMakiRolls()
     {
-        Spawning();
+        while (makiRollsN < maxMakiRolls)
+        {
+            Spawning();
+        }
         yield return new WaitForSeconds(spawnDelay);
     }
 
