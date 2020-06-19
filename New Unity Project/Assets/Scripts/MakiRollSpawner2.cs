@@ -38,9 +38,13 @@ public class MakiRollSpawner2 : MonoBehaviour
     //test, spawna, aspetta, spawna, resetta coroutine (in update, quando i maki roll sono X stoppa la coroutine
     IEnumerator SpawnMakiRolls()
     {
-        yield return new WaitForSeconds(spawnDelay);
-        Spawning();
-        yield return SpawnMakiRolls();
+        if(makiRollsN <= maxMakiRolls)
+        {
+            yield return new WaitForSeconds(spawnDelay);
+            Spawning();
+            yield return SpawnMakiRolls();
+        }
+        yield return null;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,9 +56,10 @@ public class MakiRollSpawner2 : MonoBehaviour
 
     private void Update()
     {
-        if (makiRollsN >= maxMakiRolls)
+        if (makiRollsN == maxMakiRolls)
         {
-            StopCoroutine(SpawnMakiRolls());
+            //StopCoroutine(SpawnMakiRolls());
+            StopAllCoroutines();
             Debug.Log("STOP");
             //ferma lo spawn dei maki rolls
             //come? il counter makirollsN conta quanti maki passano per un collider. Quando sono >= fermo la coroutine che farò
