@@ -51,6 +51,6 @@ public class MakiRollSpawner2 : MonoBehaviour
     {
         collision.gameObject.tag = "Makiroll";
         makiRollsN += 1;
-        Debug.Log("passati " + makiRollsN + " maki rollsss");        
+        //Debug.Log("passati " + makiRollsN + " maki rollsss");        
     }
 }

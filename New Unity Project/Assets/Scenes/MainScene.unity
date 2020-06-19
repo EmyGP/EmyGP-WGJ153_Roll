@@ -246,9 +246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a860fae3525c9c4db7c4baaac641529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDelay: 5
+  spawnDelay: 3
   makiRollsN: 0
-  maxMakiRolls: 3
+  maxMakiRolls: 5
   makiRoll1: {fileID: 2502105362947654821, guid: f579e3ba77f1c274bbb6405faf5bdaac,
     type: 3}
   x: 2
