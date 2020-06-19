@@ -35,13 +35,13 @@ public class MakiRollSpawner2 : MonoBehaviour
         Instantiate(makiRoll1, new Vector3(x, y, 0), Quaternion.identity);
     }
 
+    //test, spawna, aspetta, spawna, resetta coroutine (in update, quando i maki roll sono X stoppa la coroutine
     IEnumerator SpawnMakiRolls()
     {
-        while (makiRollsN < maxMakiRolls)
-        {
-            Spawning();
-        }
+        Spawning();
         yield return new WaitForSeconds(spawnDelay);
+        Spawning();
+        yield return SpawnMakiRolls();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,6 +55,7 @@ public class MakiRollSpawner2 : MonoBehaviour
     {
         if (makiRollsN >= maxMakiRolls)
         {
+            StopCoroutine("SpawnMakiRolls");
             //ferma lo spawn dei maki rolls
             //come? il counter makirollsN conta quanti maki passano per un collider. Quando sono >= fermo la coroutine che farò
         }        
