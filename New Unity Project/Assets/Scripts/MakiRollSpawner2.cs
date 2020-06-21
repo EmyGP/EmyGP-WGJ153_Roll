@@ -13,8 +13,10 @@ public class MakiRollSpawner2 : MonoBehaviour
     public float maxMakiRolls;
 
     public GameObject makiRoll1;
-    public int x;
-    public int y;
+    //public int x;
+    //public int y;
+    public Transform spawnPoint;
+    private Vector3 spawnPointV;
     //collider per contare i makirolls passati
     public Collider2D makiCC;
 
@@ -28,11 +30,12 @@ public class MakiRollSpawner2 : MonoBehaviour
     private void Start()
     {
         StartCoroutine("SpawnMakiRolls");
+        spawnPointV = spawnPoint.position;
     }
 
     void Spawning()
     {    
-        Instantiate(makiRoll1, new Vector3(x, y, 0), Quaternion.identity);
+        Instantiate(makiRoll1, spawnPointV, Quaternion.identity);
     }
 
     //test, spawna, aspetta, spawna, resetta coroutine (in update, quando i maki roll sono X stoppa la coroutine
