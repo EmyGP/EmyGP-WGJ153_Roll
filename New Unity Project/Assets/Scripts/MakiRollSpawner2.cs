@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class MakiRollSpawner2 : MonoBehaviour
 {
-        //ogni quanto spawnano
+    //ogni quanto spawnano
     //public float repeatSpawnRate;
-        //dopo quanto spawnano per la prima volta
+    //dopo quanto spawnano per la prima volta
     //public GameObject[] makiRolls;
     public float spawnDelay;
     public int makiRollsN;
     public float maxMakiRolls;
 
     public GameObject makiRoll1;
-    //public int x;
-    //public int y;
     public Transform spawnPoint;
     private Vector3 spawnPointV;
     //collider per contare i makirolls passati
@@ -29,8 +27,8 @@ public class MakiRollSpawner2 : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine("SpawnMakiRolls");
         spawnPointV = spawnPoint.position;
+        StartCoroutine("SpawnMakiRolls");
     }
 
     void Spawning()
