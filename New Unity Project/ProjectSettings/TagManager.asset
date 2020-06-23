@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Makiroll
   - Destroy
+  - Box
   layers:
   - Default
   - TransparentFX

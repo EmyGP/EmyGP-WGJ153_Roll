@@ -21,4 +21,9 @@ public class ScoreCounter : MonoBehaviour
             //not so sure about the following one- The goal was printing the numer of makirolls on the text object
         scoreText.text = makiRollsN.ToString();
     }
+
+    void Update()
+    {
+        ScoreCount();
+    }
 }

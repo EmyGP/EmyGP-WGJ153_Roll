@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\learn from mistakes\blockBehavior.cs" />
     <Compile Include="Assets\Scripts\learn from mistakes\MakiRollSpawner.cs" />
     <Compile Include="Assets\Scripts\MakiRollSpawner2.cs" />
+    <Compile Include="Assets\Scripts\PopUpText.cs" />
     <Compile Include="Assets\Scripts\ScoreCounter.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/EmyGP/Documents/Games/WGJ153_Roll/New Unity Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
