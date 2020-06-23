@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class MakiRollSpawner2 : MonoBehaviour
 {
-    //ogni quanto spawnano
     //public float repeatSpawnRate;
-    //dopo quanto spawnano per la prima volta
     //public GameObject[] makiRolls;
     public float spawnDelay;
+        //numero di makirolls in scena, si aggiorna in OnTrigggerEnter
     public int makiRollsN;
+        //numero massimo di makiroll che voglio siano spawnati dallo spawner
     public float maxMakiRolls;
 
+        //roba per lo spawnpoint
     public GameObject makiRoll1;
     public Transform spawnPoint;
     private Vector3 spawnPointV;
     //collider per contare i makirolls passati
     public Collider2D makiCC;
+
+    public ScoreCounter _scoreCounter;
 
     //void Awake()
     //{
@@ -36,7 +39,7 @@ public class MakiRollSpawner2 : MonoBehaviour
         Instantiate(makiRoll1, spawnPointV, Quaternion.identity);
     }
 
-    //test, spawna, aspetta, spawna, resetta coroutine (in update, quando i maki roll sono X stoppa la coroutine
+    //se il numero di maki roll in scena < del N mi maki roll max prefissato, spawna, poi aspetta, poi se ecc. ecc. spawna di nuovo
     IEnumerator SpawnMakiRolls()
     {
         if(makiRollsN < maxMakiRolls)
@@ -45,13 +48,21 @@ public class MakiRollSpawner2 : MonoBehaviour
             yield return new WaitForSeconds(spawnDelay);
             yield return SpawnMakiRolls();
         }
+        else if(makiRollsN == maxMakiRolls)
+        {
+            //questo tempo deve essere alto per evitare che lo score guadagni un +1 a caso (vedi commento in ScoreCount.CS)
+            yield return new WaitForSeconds(3.5f);
+            _scoreCounter.ScoreCount();
+        }
         yield return null;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.gameObject.tag = "Makiroll";
-        makiRollsN += 1;
-        //Debug.Log("passati " + makiRollsN + " maki rollsss");        
+        if(collision.gameObject.tag == "Makiroll")
+        {
+            makiRollsN += 1;
+            //Debug.Log("passati " + makiRollsN + " maki rollsss");
+        }
     }
 }

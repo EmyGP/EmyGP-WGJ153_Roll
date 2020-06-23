@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 174673805}
   - component: {fileID: 174673804}
   m_Layer: 5
-  m_Name: score_Text (3)
+  m_Name: final_score_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -216,16 +216,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 174673802}
-  m_LocalRotation: {x: -0, y: -0, z: 0.07695395, w: 0.99703467}
+  m_LocalRotation: {x: -0, y: -0, z: 0.05183976, w: 0.99865544}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1115096059}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8.827001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.9430003}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 187.80005, y: 36.200012}
+  m_AnchoredPosition: {x: 187, y: 44}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &174673804
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9529412, g: 0.9098039, b: 0.6431373, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -250,12 +250,12 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 60
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
-    m_Alignment: 3
+    m_MaxSize: 60
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -639,12 +639,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572915605}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -10.61, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.59, y: -7.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 776896205}
-  m_RootOrder: 5
+  m_Father: {fileID: 1784160299}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &572915608
 BoxCollider2D:
@@ -701,7 +701,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa200c63e70f74644ac7e0d63426c8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 112438136}
+  scoreText: {fileID: 174673804}
+  NmakiText: {fileID: 1363908922}
+  finalImg: {fileID: 1115096060}
 --- !u!4 &623162982
 Transform:
   m_ObjectHideFlags: 0
@@ -1028,7 +1030,6 @@ Transform:
   - {fileID: 310143521}
   - {fileID: 1620278289}
   - {fileID: 1652383179}
-  - {fileID: 572915606}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1772,7 +1773,7 @@ GameObject:
   - component: {fileID: 1363908923}
   - component: {fileID: 1363908922}
   m_Layer: 5
-  m_Name: score_Text (2)
+  m_Name: makirolls_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1795,7 +1796,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 174.80005, y: 136.20001}
-  m_SizeDelta: {x: 250, y: 100}
+  m_SizeDelta: {x: 260, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1363908922
 MonoBehaviour:
@@ -2293,6 +2294,7 @@ Transform:
   - {fileID: 1417886907}
   - {fileID: 735695851}
   - {fileID: 1500549476}
+  - {fileID: 572915606}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2578,8 +2580,13 @@ PrefabInstance:
     - target: {fileID: 79470257877892690, guid: 83f792da6d14cd640894129875f213e4,
         type: 3}
       propertyPath: maxMakiRolls
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 79470257877892690, guid: 83f792da6d14cd640894129875f213e4,
+        type: 3}
+      propertyPath: _scoreCounter
+      value: 
+      objectReference: {fileID: 623162981}
     - target: {fileID: 79470257877892691, guid: 83f792da6d14cd640894129875f213e4,
         type: 3}
       propertyPath: m_Offset.x
