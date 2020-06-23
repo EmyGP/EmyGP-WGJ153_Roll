@@ -10,6 +10,8 @@ public class ScoreCounter : MonoBehaviour
     public Text NmakiText;
     public Image finalImg;
 
+    public ScenesManager _scenesManager;
+
     void Start()
     {
         NmakiText.enabled = false;
@@ -30,6 +32,9 @@ public class ScoreCounter : MonoBehaviour
         NmakiText.enabled = true;
         scoreText.enabled = true;
         scoreText.text = makiRollsN.ToString();
+
+        //attiva i buttttttttttons;
+        _scenesManager.ActivateButtons();
     }
 
     //void Update()
