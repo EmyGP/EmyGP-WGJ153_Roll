@@ -2976,7 +2976,7 @@ PrefabInstance:
     - target: {fileID: 79470257877892690, guid: 83f792da6d14cd640894129875f213e4,
         type: 3}
       propertyPath: maxMakiRolls
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 79470257877892690, guid: 83f792da6d14cd640894129875f213e4,
         type: 3}
